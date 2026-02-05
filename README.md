@@ -52,7 +52,7 @@ MyAnimanga/
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/myanimanga.git
+git clone https://github.com/tetewheroez/myanimanga.git
 cd myanimanga
 ```
 
