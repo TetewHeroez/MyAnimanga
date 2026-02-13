@@ -285,7 +285,7 @@ const Navbar = ({ transparent = false }: NavbarProps) => {
             to="/random"
             className={`font-semibold text-sm lg:text-base ${transparent && !isScrolled ? "text-white/90" : "text-primary"} hover:opacity-70 transition-all duration-300`}
           >
-            🎲 Random
+            Random
           </Link>
         </div>
 
@@ -533,7 +533,7 @@ const Navbar = ({ transparent = false }: NavbarProps) => {
                   className="text-sm text-primary font-medium py-2 px-2 rounded hover:bg-cream-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  🎲 Random
+                  Random
                 </Link>
               </div>
             </div>
