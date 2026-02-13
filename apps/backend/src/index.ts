@@ -27,8 +27,8 @@ const app = new Elysia()
   .use(animeRoutes)
   .use(mangaRoutes)
   .use(listRoutes)
-  .listen(3003);
+  .listen(process.env.PORT || 3003);
 
-console.log(`Backend API running at http://localhost:${app.server?.port}`);
+console.log(`Backend API running on port ${app.server?.port}`);
 
 export type App = typeof app;
