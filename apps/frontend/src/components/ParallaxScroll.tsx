@@ -85,7 +85,7 @@ export default function ParallaxScroll() {
         {/* Text - positioned near top, below navbar */}
         <h2
           ref={textRef}
-          className="absolute top-[12%] md:top-[14%] text-white text-[2rem] md:text-[4rem] xl:text-[6rem] font-bold drop-shadow-2xl z-5 align-center text-center px-4"
+          className="absolute leading-tight top-[12%] md:top-[14%] text-white text-[1rem] sm:text-[1.5rem] md:text-[3rem] xl:text-[5rem] font-bold drop-shadow-2xl z-5 text-center px-8 sm:px-12 md:px-16 max-w-[80%] sm:max-w-[70%] md:max-w-[60%]"
           style={{ textShadow: "0 4px 20px rgba(0,0,0,0.5)" }}
         >
           Explore Anime, Manga, and Light Novels
