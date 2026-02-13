@@ -1,7 +1,8 @@
 // Frontend API Service - fetches from backend
 // Backend handles all Jikan API calls
 
-const API_BASE_URL = "http://localhost:3003/api/anime";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3003/api";
+const API_BASE_URL = `${BASE_URL}/anime`;
 
 export interface AnimeData {
   mal_id: number;
@@ -131,7 +132,7 @@ export async function getAnimeById(id: number): Promise<AnimeData | null> {
 
 // ============ MANGA API ============
 
-const MANGA_API_URL = "http://localhost:3003/api/manga";
+const MANGA_API_URL = `${BASE_URL}/manga`;
 
 export interface MangaData {
   mal_id: number;
@@ -187,6 +188,23 @@ export async function getLatestManga(limit: number = 12): Promise<MangaData[]> {
   }
 }
 
+// Search manga
+export async function searchManga(
+  query: string,
+  limit: number = 10,
+): Promise<MangaData[]> {
+  try {
+    const response = await fetch(
+      `${MANGA_API_URL}/search?q=${encodeURIComponent(query)}&limit=${limit}`,
+    );
+    const result: ApiResponse<MangaData[]> = await response.json();
+    return result.data || [];
+  } catch (error) {
+    console.error("Error searching manga:", error);
+    return [];
+  }
+}
+
 // ============ LIGHT NOVEL API ============
 
 // Get top light novels
@@ -223,8 +241,8 @@ export async function getLatestLightNovels(
 
 // ============ AUTH API ============
 
-const AUTH_API_URL = "http://localhost:3003/api/auth";
-const LIST_API_URL = "http://localhost:3003/api/list";
+const AUTH_API_URL = `${BASE_URL}/auth`;
+const LIST_API_URL = `${BASE_URL}/list`;
 
 export interface User {
   id: string;

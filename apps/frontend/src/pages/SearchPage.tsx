@@ -1,25 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { searchAnime, AnimeData, MangaData } from "../services/api";
+import {
+  searchAnime,
+  searchManga,
+  AnimeData,
+  MangaData,
+} from "../services/api";
 import { AnimeGridSkeleton } from "../components/Skeleton";
-
-const MANGA_API_URL = "http://localhost:3003/api/manga";
-
-async function searchManga(
-  query: string,
-  limit: number = 10,
-): Promise<MangaData[]> {
-  try {
-    const response = await fetch(
-      `${MANGA_API_URL}/search?q=${encodeURIComponent(query)}&limit=${limit}`,
-    );
-    const result = await response.json();
-    return result.data || [];
-  } catch (error) {
-    console.error("Error searching manga:", error);
-    return [];
-  }
-}
 
 type SearchTab = "all" | "anime" | "manga";
 
