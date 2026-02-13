@@ -47,15 +47,15 @@ export default function ParallaxScroll() {
   }, []);
 
   return (
-    <div className="relative w-full h-screen">
-      {/* Main parallax container - full screen, no margins */}
+    <div className="relative w-full h-[60vh] sm:h-[75vh] md:h-[85vh] lg:h-screen">
+      {/* Main parallax container - responsive height */}
       <section className="relative w-full h-full overflow-hidden flex justify-center items-center">
         {/* Background Image */}
         <img
           ref={bgRef}
           src={bgImage}
           alt="frieren"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
         />
 
         {/* Mountain Image */}
@@ -63,7 +63,7 @@ export default function ParallaxScroll() {
           ref={mountainRef}
           src={mountainImage}
           alt="frieren"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
         />
 
         {/* Mid Image */}
@@ -71,7 +71,7 @@ export default function ParallaxScroll() {
           ref={midRef}
           src={midImage}
           alt="frieren"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-2"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-2"
         />
 
         {/* Front Image */}
@@ -79,20 +79,20 @@ export default function ParallaxScroll() {
           ref={frontRef}
           src={frontImage}
           alt="frieren"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-2"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-2"
         />
 
         {/* Text - positioned near top, below navbar */}
         <h2
           ref={textRef}
-          className="absolute top-[12%] md:top-[14%] text-white text-[4rem] md:text-[6rem] xl:text-[8rem] font-bold drop-shadow-2xl z-5"
+          className="absolute top-[12%] md:top-[14%] text-white text-[2rem] md:text-[4rem] xl:text-[6rem] font-bold drop-shadow-2xl z-5 align-center text-center px-4"
           style={{ textShadow: "0 4px 20px rgba(0,0,0,0.5)" }}
         >
-          Frieren
+          Explore Anime, Manga, and Light Novels
         </h2>
 
         {/* Bottom gradient overlay - blend into cream */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-linear-to-t from-cream via-cream/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 md:h-64 bg-linear-to-t from-cream via-cream/80 to-transparent z-10 pointer-events-none" />
       </section>
     </div>
   );
