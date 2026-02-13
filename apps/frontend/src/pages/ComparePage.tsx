@@ -30,8 +30,8 @@ const ComparePage = () => {
   const [results2, setResults2] = useState<CompareItem[]>([]);
   const [showDropdown1, setShowDropdown1] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
-  const debounceRef1 = useRef<ReturnType<typeof setTimeout>>();
-  const debounceRef2 = useRef<ReturnType<typeof setTimeout>>();
+  const debounceRef1 = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const debounceRef2 = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const searchAnime = async (
     query: string,
