@@ -27,7 +27,10 @@ const app = new Elysia()
   .use(animeRoutes)
   .use(mangaRoutes)
   .use(listRoutes)
-  .listen(process.env.PORT || 3003);
+  .listen({
+    port: Number(process.env.PORT) || 3003,
+    hostname: "0.0.0.0",
+  });
 
 console.log(`Backend API running on port ${app.server?.port}`);
 
