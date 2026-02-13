@@ -36,6 +36,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="anime/:id" element={<AnimeDetailPage />} />
           <Route path="manga/:id" element={<MangaDetailPage />} />
+          <Route path="lightnovel/:id" element={<MangaDetailPage />} />
           <Route path="trending" element={<TrendingPage />} />
           <Route path="my-list" element={<MyListPage />} />
           <Route path="schedule" element={<SchedulePage />} />

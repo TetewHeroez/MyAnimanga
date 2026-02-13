@@ -116,7 +116,7 @@ const ExportImportPage = () => {
   };
 
   return (
-    <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+    <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">

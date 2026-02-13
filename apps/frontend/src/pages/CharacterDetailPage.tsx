@@ -66,7 +66,7 @@ const CharacterDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Skeleton className="aspect-3/4 rounded-2xl" />
@@ -83,7 +83,7 @@ const CharacterDetailPage = () => {
 
   if (!character) {
     return (
-      <div className="bg-cream min-h-screen pt-24 pb-12 px-4 text-center">
+      <div className="bg-cream min-h-screen pt-28 pb-12 px-4 text-center">
         <h1 className="text-2xl font-bold text-dark">Character not found</h1>
         <Link
           to="/characters"
@@ -96,7 +96,7 @@ const CharacterDetailPage = () => {
   }
 
   return (
-    <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Breadcrumb */}
         <div className="mb-6">

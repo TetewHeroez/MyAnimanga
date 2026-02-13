@@ -57,7 +57,7 @@ const TopMangaPage = () => {
   ];
 
   return (
-    <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+    <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -89,45 +89,47 @@ const TopMangaPage = () => {
 
         {/* Manga Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6">
-          {manga.map((item, index) => (
-            <Link
-              key={item.mal_id}
-              to={`/manga/${item.mal_id}`}
-              className="group"
-            >
-              <div className="relative aspect-3/4 rounded-xl overflow-hidden bg-cream-200 shadow-md">
-                <img
-                  src={item.images.jpg.large_image_url}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                {/* Rank */}
-                <div className="absolute top-2 left-2 px-2 py-1 bg-dark/80 text-white text-xs font-bold rounded-lg">
-                  #{(page - 1) * 24 + index + 1}
-                </div>
-                {/* Score */}
-                {item.score && (
-                  <div className="absolute top-2 right-2 px-2 py-1 bg-primary text-white text-xs font-bold rounded-lg">
-                    ★ {item.score}
+          {manga.map((item, index) => {
+            const linkPath =
+              item.type === "Light Novel"
+                ? `/lightnovel/${item.mal_id}`
+                : `/manga/${item.mal_id}`;
+            return (
+              <Link key={item.mal_id} to={linkPath} className="group">
+                <div className="relative aspect-3/4 rounded-xl overflow-hidden bg-cream-200 shadow-md">
+                  <img
+                    src={item.images.jpg.large_image_url}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Rank */}
+                  <div className="absolute top-2 left-2 px-2 py-1 bg-dark/80 text-white text-xs font-bold rounded-lg">
+                    #{(page - 1) * 24 + index + 1}
                   </div>
-                )}
-                {/* Type Badge */}
-                <div className="absolute bottom-2 left-2 px-2 py-1 bg-white/90 text-dark text-xs rounded-lg capitalize">
-                  {item.type}
+                  {/* Score */}
+                  {item.score && (
+                    <div className="absolute top-2 right-2 px-2 py-1 bg-primary text-white text-xs font-bold rounded-lg">
+                      ★ {item.score}
+                    </div>
+                  )}
+                  {/* Type Badge */}
+                  <div className="absolute bottom-2 left-2 px-2 py-1 bg-white/90 text-dark text-xs rounded-lg capitalize">
+                    {item.type}
+                  </div>
                 </div>
-              </div>
-              <h3 className="mt-2 text-sm font-medium text-dark line-clamp-2 group-hover:text-primary transition-colors">
-                {item.title_english || item.title}
-              </h3>
-              <p className="text-xs text-dark/50 mt-1">
-                {item.chapters
-                  ? `${item.chapters} chapters`
-                  : item.volumes
-                    ? `${item.volumes} volumes`
-                    : item.status}
-              </p>
-            </Link>
-          ))}
+                <h3 className="mt-2 text-sm font-medium text-dark line-clamp-2 group-hover:text-primary transition-colors">
+                  {item.title_english || item.title}
+                </h3>
+                <p className="text-xs text-dark/50 mt-1">
+                  {item.chapters
+                    ? `${item.chapters} chapters`
+                    : item.volumes
+                      ? `${item.volumes} volumes`
+                      : item.status}
+                </p>
+              </Link>
+            );
+          })}
         </div>
 
         {/* Loading */}

@@ -118,6 +118,7 @@ const MyListPage = () => {
 
   const getDetailLink = (item: ListItem) => {
     if (item.type === "anime") return `/anime/${item.malId}`;
+    if (item.type === "lightnovel") return `/lightnovel/${item.malId}`;
     return `/manga/${item.malId}`;
   };
 
@@ -130,7 +131,7 @@ const MyListPage = () => {
   // Not logged in state
   if (!isLoggedIn) {
     return (
-      <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-20">
             <svg
@@ -167,7 +168,7 @@ const MyListPage = () => {
   // Loading state
   if (loading) {
     return (
-      <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-20">
             <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
@@ -179,7 +180,7 @@ const MyListPage = () => {
   }
 
   return (
-    <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+    <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">

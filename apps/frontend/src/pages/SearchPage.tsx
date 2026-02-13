@@ -49,7 +49,7 @@ const SearchPage = () => {
   ];
 
   return (
-    <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+    <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -120,25 +120,31 @@ const SearchPage = () => {
                 <div className="mb-12">
                   <h2 className="text-xl font-bold text-dark mb-4">Manga</h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                    {mangaResults.map((manga) => (
-                      <Link
-                        key={manga.mal_id}
-                        to={`/manga/${manga.mal_id}`}
-                        className="group"
-                      >
-                        <div className="aspect-3/4 rounded-xl overflow-hidden bg-accent-gray mb-2">
-                          <img
-                            src={manga.images.jpg.large_image_url}
-                            alt={manga.title}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                        </div>
-                        <h3 className="text-sm font-medium text-dark line-clamp-2 group-hover:text-primary transition-colors">
-                          {manga.title_english || manga.title}
-                        </h3>
-                        <p className="text-xs text-dark/60">{manga.type}</p>
-                      </Link>
-                    ))}
+                    {mangaResults.map((manga) => {
+                      const linkPath =
+                        manga.type === "Light Novel"
+                          ? `/lightnovel/${manga.mal_id}`
+                          : `/manga/${manga.mal_id}`;
+                      return (
+                        <Link
+                          key={manga.mal_id}
+                          to={linkPath}
+                          className="group"
+                        >
+                          <div className="aspect-3/4 rounded-xl overflow-hidden bg-accent-gray mb-2">
+                            <img
+                              src={manga.images.jpg.large_image_url}
+                              alt={manga.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </div>
+                          <h3 className="text-sm font-medium text-dark line-clamp-2 group-hover:text-primary transition-colors">
+                            {manga.title_english || manga.title}
+                          </h3>
+                          <p className="text-xs text-dark/60">{manga.type}</p>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}

@@ -64,9 +64,14 @@ const MangaCard = ({ manga, size = "medium" }: MangaCardProps) => {
     large: "w-52 h-76 lg:w-60 lg:h-88",
   };
 
+  const linkPath =
+    manga.type === "Light Novel"
+      ? `/lightnovel/${manga.mal_id}`
+      : `/manga/${manga.mal_id}`;
+
   return (
     <Link
-      to={`/manga/${manga.mal_id}`}
+      to={linkPath}
       className={`${sizeClasses[size]} rounded-xl overflow-hidden bg-accent-gray relative group cursor-pointer shrink-0 select-none block`}
     >
       <img

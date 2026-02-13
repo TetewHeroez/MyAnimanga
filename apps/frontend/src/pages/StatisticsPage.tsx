@@ -26,7 +26,7 @@ const StatisticsPage = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="bg-cream min-h-screen pt-24 pb-12 px-4 text-center">
+      <div className="bg-cream min-h-screen pt-28 pb-12 px-4 text-center">
         <h1 className="text-3xl font-bold text-dark mb-4">Login Required</h1>
         <p className="text-dark/60 mb-6">
           Please login to view your statistics
@@ -40,7 +40,7 @@ const StatisticsPage = () => {
 
   if (loading) {
     return (
-      <div className="bg-cream min-h-screen pt-24 pb-12 flex items-center justify-center">
+      <div className="bg-cream min-h-screen pt-28 pb-12 flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
       </div>
     );
@@ -92,7 +92,7 @@ const StatisticsPage = () => {
   };
 
   return (
-    <div className="bg-cream min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
+    <div className="bg-cream min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-8 xl:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">

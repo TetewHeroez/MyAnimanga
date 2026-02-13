@@ -12,9 +12,13 @@ import {
 
 interface NavbarProps {
   transparent?: boolean;
+  scrollThreshold?: "full" | "small";
 }
 
-const Navbar = ({ transparent = false }: NavbarProps) => {
+const Navbar = ({
+  transparent = false,
+  scrollThreshold = "small",
+}: NavbarProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
@@ -52,15 +56,18 @@ const Navbar = ({ transparent = false }: NavbarProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Change navbar style after scrolling past 100vh (parallax height)
-      setIsScrolled(window.scrollY > window.innerHeight * 0.8);
+      // For home page (full): scroll past 80% of viewport height
+      // For detail pages (small): scroll past 100px
+      const threshold =
+        scrollThreshold === "full" ? window.innerHeight * 0.8 : 100;
+      setIsScrolled(window.scrollY > threshold);
     };
 
     if (transparent) {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     }
-  }, [transparent]);
+  }, [transparent, scrollThreshold]);
 
   const navBg =
     transparent && !isScrolled ? "bg-transparent" : "bg-cream shadow-sm";
